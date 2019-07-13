@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List Game</title>
+	Latest compiled and minified CSS & JS
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+</head>
+<body>
+	<script type="text/javascript">xhx
+		var br ="<br/>";
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange =function(){
+			if(xhr.status==200 && xhr.readyState==4){
+				document.write(xhr.responseText);
+				var listGame =JSON.parse(xhr.responseText);
+				for(var i=0;i<listGame.length;i++){
+					document.write(listGame[i].rollNumber+br);
+					// document.write(listGame[i].name+br);
+					// document.write(listGame[i].imageUrl+br);
+					// document.write(listGame[i].description+br);
+					// document.write(listGame[i].genre+br);
+					// document.write(listGame[i].publisher+br);
+					// document.write(listGame[i].genre+br);
+					// document.write(listGame[i].CreateAt+br);
+					// document.write(listGame[i].UpdateAt+br);
+				}
+			}
+		}
+		xhr.open('GET','https://1-dot-thermal-formula-241902.appspot.com/game',true);
+		xhr.send(null);
+	</script>
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    img{width: 400px;}
+    a{
+      text-decoration: none;
+    }
+    #id01{
+    width: 400px;
+    }
+    .div1{
+      font-size: 15px;
+      width:34px;height: 16px;
+      background-color:  #5bc0de;
+      color:  white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    
+  </style>
+  <!-- Latest compiled and minified CSS & JS -->
+</head>
+<body>
+<div id="id01">
+</div>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://1-dot-sidang-20101990.appspot.com/game";
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myArr = JSON.parse(this.responseText);
+    myFunction(myArr);
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+  var out = 'LIST GAME<br>';
+  var link ='edit.html';
+  var i;
+  for(i = 0; i < arr.length; i++) {
+    out +='<img src='+arr[i].image+'>'+'<p>' +'ID: '+arr[i].id + '</p>'+'<p>' + 'NAME: '+
+    arr[i].name + '</p>'+'<p>' +'PRICE: '+arr[i].price +'$'+ '</p>'+'<a href='+link+'>Edit</a>'+'</div>'+'<hr>';
+
+  }
+  document.getElementById("id01").innerHTML = out;
+}
+</script>
+
+</body>
+</html>

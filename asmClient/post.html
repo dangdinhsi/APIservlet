@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Buy Game</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script>
+ window.onload = function() {
+ document.getElementById("Save").onclick = function fun() {
+ var a =document.forms["sidang"]["name"].value;
+ var b=document.forms["sidang"]["image"].value;
+ var c=document.forms["sidang"]["price"].value;
+ var sendOBJ =JSON.stringify({name:a,image:b,price:c});
+ var Url = "https://1-dot-sidang-20101990.appspot.com/game";
+ var xhr = new XMLHttpRequest();
+ xhr.open('POST', Url, true);
+ xhr.send(sendOBJ);
+ }
+ }
+</script>
+</head>
+<body>
+
+<div class="container">
+<h1>Post game</h1>
+<form name="sidang" class="form-group">
+ <input class="form-control" type="text" name="name" placeholder="name...">
+ <br><br>
+ <input class="form-control" type="text" name="image" placeholder="url image.." />
+ <br><br>
+ <input class="form-control" type="text" name="price" placeholder="price..." />
+ <br><br>
+ <input class="form-control btn-success" type="button" id="Save" onclick="f1()" value="POST"/>
+</form>
+</div>
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
